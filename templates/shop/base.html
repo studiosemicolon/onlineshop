@@ -1,0 +1,142 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}online shop{% endblock %}</title>
+    <link rel="shortcut icon" type="image/png" href="{%  static 'img/save.ico' %}"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/shop-homepage.css' %}" rel="stylesheet">
+
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/"> <img src="{% static "img/logo.png" %}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+
+
+
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="{% url 'cart:cart_detail' %}"  class="nav-link">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; cart
+
+                    </a>
+                    
+                </li>    
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; {{ user.username }}
+
+                    </a>
+                    
+                </li>    
+
+                <li class="nav-item">
+                    <a href="{% url 'accounts:logout' %}?next=/" class="nav-link">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
+
+                    </a>
+                </li>
+
+                {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'accounts:signup' %}" class="nav-link">
+                        <span  aria-hidden="true"></span>&nbsp; Register
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'accounts:login' %}" class="nav-link">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp; Login
+
+                    </a>
+                
+                </li>
+
+                {% endif %}
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+<div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; OnlineShop 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <div id="header">
+        <a href="/" class="logo">My shop</a>
+    </div>
+    <div id="subheader">
+        <a href="/" class="logo">My shop</a>
+        
+        <a href="/" > Products </a>
+
+        <a href="/" > About </a>
+        <a href="/" > Contact </a>
+        <div class="cart">
+            
+            {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    Your cart: 
+                    <a href="{% url "cart:cart_detail" %}">
+                        {{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}
+                    </a>
+                {% else %}
+                    Your cart is empty.
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    
+</body>
+</html>

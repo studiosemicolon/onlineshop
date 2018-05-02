@@ -1,0 +1,17 @@
+{% extends "shop/base.html" %}
+{% load crispy_forms_tags %}
+
+<h2>Login</h2>
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}Login{% endif %}
+{% endblock %}
+{%block content %}
+
+<form method="post">
+  {% csrf_token %}
+  
+  {{ form|crispy }}
+
+  <button type="submit">Login</button>
+</form>
+{% endblock %}
