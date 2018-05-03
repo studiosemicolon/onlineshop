@@ -13,26 +13,17 @@
 
       <div class="row">
 
-        <div class="col-lg-3">
-          
-          <h2 class="my-4"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
-          <div class="list-group">
-            <a href="#" class="list-group-item active">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
-          </div>
-        </div>
-        <!-- /.col-lg-3 -->
+        
 
-        <div class="col-lg-9">
+        <div class="col-lg-8">
 
           <div class="card mt-4">
             
-            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" class="card-img-top img-fluid">
+            
             <div class="card-body">
-              <h3 class="card-title">{{ product.name }}</h3>
-              <h4>${{ product.price }}</h4>
-              <p class="card-text">{{ product.description|linebreaks }}</p>
+              
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" class="card-img-top img-fluid">  
+              
               
               
 
@@ -44,6 +35,51 @@
 
         </div>
         <!-- /.col-lg-9 -->
+        <div class="col-lg-4">
+          <div class="card mt-4">
+            <div class="card-body">
+
+
+              <h2 class="my-4"><a href="{{ product.category.get_absolute_url }}">{{ product.category      }}</a></h2>
+              <div class="form-control">
+                <input type="input" name="hello" class="form-control">
+                <input type="submit" name="hello" value="sub">
+                
+              </div>
+          </div>
+
+        </div>
+          <div class="card mt-4">
+            
+            
+            <div class="card-body">
+              <h3 class="card-title">{{ product.name }}</h3>
+              <h4>${{ product.price }}</h4>
+              <p class="card-text">{{ product.description|linebreaks }}</p>
+              
+              
+              <div class="card-footer form-group">
+                  <small class="text-muted">
+                      <input type="submit" value="Add to cart" class="btn btn-success">
+
+                      <input type="submit" value="Buy Now" class="btn btn-success">
+                      <input type="input" value="Buy Now" class="form-control">
+                  </small>
+          </div>
+            </div>
+          </div>
+
+
+
+
+
+          {# <div class="list-group">
+            <a href="#" class="list-group-item active">Category 1</a>
+            <a href="#" class="list-group-item">Category 2</a>
+            <a href="#" class="list-group-item">Category 3</a>
+          </div> #}
+        </div>
+        <!-- /.col-lg-3 -->
 
       </div>
 

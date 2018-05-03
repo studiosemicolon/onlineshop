@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-lg-3">
 
-          <h1 class="my-4">OnlineShop</h1>
+          
           <h3 class="my-4">Products</h3>
           <div class="list-group">
             
@@ -21,11 +21,24 @@
             {% endfor %}
             
           </div>
+
+
+
+                      <form class="form-inline">
+            
+            <div class="form-group mx-sm-3 mb-2">
+              
+              <input type="password" class="form-control" id="inputPassword2" placeholder="search">
+              <button type="submit" class="btn btn-primary mb-2">Go</button>
+            </div>
+        
+        </form>
         </div>
         <!-- /.col-lg-3 -->
         <div class="col-lg-9">
             <div class="row">
-            <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
+
+            <h3>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h3>
             </div>
         <div class="row">
           
@@ -44,11 +57,11 @@
                     <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
                   </h4>
                   <h5>${{ product.price }}</h5>
-                  <p class="card-text">{{ product.description }}</p>
+                  
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">
-                      <input type="submit" value="Add to cart" class="btn btn-success">
+                      <input type="submit" value="Add to cart" class="btn btn-primary">
                       <input type="submit" value="Buy Now" class="btn btn-success">
                   </small>
                 </div>

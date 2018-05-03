@@ -26,6 +26,6 @@ def cart_remove(request, product_id):
 
 def cart_detail(request):
     cart = Cart.objects.get(id=3)
-    import pdb; pdb.set_trace()
+    #import pdb; pdb.set_trace()
 
     return render(request, 'cart/cart_detail.html', {'cart': cart})
