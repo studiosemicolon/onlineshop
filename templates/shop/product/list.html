@@ -23,22 +23,26 @@
           </div>
 
 
+          <h3 class="my-4">Search Products</h3>
+               
+            <div class="row">
 
-                      <form class="form-inline">
-            
-            <div class="form-group mx-sm-3 mb-2">
-              
-              <input type="password" class="form-control" id="inputPassword2" placeholder="search">
-              <button type="submit" class="btn btn-primary mb-2">Go</button>
-            </div>
-        
-        </form>
+                            <div class="col-lg-12">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                  </span>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
         </div>
         <!-- /.col-lg-3 -->
         <div class="col-lg-9">
             <div class="row">
 
-            <h3>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h3>
+            <h3></h3>
+            <h3 class="my-4">{% if category %}{{ category.name }}{% else %}Products{% endif %}</h3>
             </div>
         <div class="row">
           
@@ -59,9 +63,10 @@
                   <h5>${{ product.price }}</h5>
                   
                 </div>
-                <div class="card-footer">
+                <div class="card-footer text-center">
                   <small class="text-muted">
-                      <input type="submit" value="Add to cart" class="btn btn-primary">
+                      
+                      <a href="{% url  'cart:cart_add' product.id %}" class="btn btn-primary">Add to cart</a>
                       <input type="submit" value="Buy Now" class="btn btn-success">
                   </small>
                 </div>

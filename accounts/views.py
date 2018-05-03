@@ -15,7 +15,7 @@ def signup(request):
             user.profile.phone_number = form.cleaned_data.get('phone_number')
             user.profile.full_name = form.cleaned_data.get('full_name')
             user.profile.gender = form.cleaned_data.get('gender')
-            user.email= form.cleaned_data.get('email')
+            user.email= form.cleaned_data.get('email' )
 
 
             user.save()
