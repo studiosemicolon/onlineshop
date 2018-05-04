@@ -12,7 +12,7 @@ from django.core.validators import RegexValidator
 class Profile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    full_name = models.TextField(max_length=500, blank=True)
+    full_name = models.CharField(max_length=17, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     GENDER_CHOICES = (('M', 'Male'), ('F', 'Female'), ('U', 'Unisex/Parody'))
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES,blank=True)

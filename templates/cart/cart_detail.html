@@ -32,14 +32,6 @@
 									<div class="col-sm-2 hidden-xs">
 
 
-
-
-
-
-
-
-
-
 								<a href="{{ product.get_absolute_url }}">
 				                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" class="img-responsive">
 				                    </a>
@@ -57,19 +49,34 @@
 							</td>
 							<td data-th="Price">$ {{ product.price }}</td>
 							<td data-th="Quantity">
+
+
+
+
 								<input type="number" class="form-control text-center" value="{{item.quantity}}">
+								    <form action="{% url "cart:cart_add" product.id %}" method="post">
+            						{{ cart_product_form }}
+            						{% csrf_token %}
+                					
+                						<input type="submit" value="Buy Now" >
+                					</form>
+                					
+                        			
+                        		
+                        			
+                    			
 
 							</td>
 							<td data-th="Subtotal" class="text-center">{{item.get_cost}}</td>
 							<td class="actions" data-th="">
-								<a  href="{% url 'cart:cart_remove' product.id %}"  class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></a>
+								
 								<a href="{% url 'cart:cart_remove' product.id %}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>								
 							</td>
 						</tr>
 						{% endwith %}
 						{% endfor %}
 					</tbody>
-					
+
 					<tfoot>
 						<tr class="visible-xs">
 							<td class="text-center"><strong>cart.</strong></td>
