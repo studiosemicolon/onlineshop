@@ -25,7 +25,7 @@ class Cart(models.Model):
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, related_name='items', null=True)
-    product = models.ForeignKey(Product, related_name='order_items')
+    product = models.ForeignKey(Product, related_name='cart_items')
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(default=1)
 
