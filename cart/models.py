@@ -17,7 +17,7 @@ class Cart(models.Model):
         ordering = ('-created',)
 
     def __str__(self):
-        return 'cart {}'.format(self.user.username)
+        return 'cart {}'.format(self.user.username)  
 
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())
