@@ -42,9 +42,9 @@
             
             <div class="card-footer text-center">
                   <small class="text-muted form-group " >
-                    <input type="submit" value="Add to cart" class="btn btn-success">
-
-                    <input type="submit" value="Buy Now" class="btn btn-success">
+                    <a href="{% url  'cart:cart_add' product.id %}" class="btn btn-primary">Add to cart</a>
+                      
+                      <a href="{% url  'wishlist:wishlist_add' product.id %}" class="btn btn-default">Add to Wishlist</a>
                
                   </small>
                 </div>

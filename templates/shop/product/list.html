@@ -27,7 +27,7 @@
                
             <div class="row">
 
-                            <div class="col-lg-12">
+                <div class="col-lg-12">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="Search for...">
                   <span class="input-group-btn">
@@ -67,7 +67,10 @@
                   <small class="text-muted">
                       
                       <a href="{% url  'cart:cart_add' product.id %}" class="btn btn-primary">Add to cart</a>
-                      <input type="submit" value="Buy Now" class="btn btn-success">
+                      
+                      <a href="{% url  'wishlist:wishlist_add' product.id %}" class="btn btn-default">Add to Wishlist</a>
+                      
+                      
                   </small>
                 </div>
                 
@@ -87,6 +90,41 @@
         <!-- /.col-lg-9 -->
 
       </div>
+
+      <div class="row ">
+        <div class="col-md-12">
+        <nav aria-label="">
+          <ul class="pager text-center">
+            {% if products.has_previous %}  
+            <li><a href="?page={{ products.previous_page_number }}">Previous</a></li>
+            {% else %}
+            <li class="disabled"><a href="#">Previous</a></li>
+
+            {% endif %}
+
+            {% if products.has_next %}
+
+            <li><a href="?page={{ products.next_page_number }}">Next</a></li>
+            {% else %}
+            <li class="disabled"><a href="#">Next</a></li>
+            {% endif %}
+          
+          
+          
+
+          <li class="active">
+            Page {{ products.number }} of {{ products.paginator.num_pages }}.
+          </li>
+
+          
+          
+          
+          
+          </ul>
+        </nav>
+      </div>
+      </div>
+
       <!-- /.row -->
 
 

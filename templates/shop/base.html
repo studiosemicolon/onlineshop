@@ -20,6 +20,7 @@
 
 
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery/custom.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
 
@@ -61,14 +62,13 @@
 
 
           <ul class="navbar-nav navbar-right">
-            
 
-                <li class=" active nav-item">
+        <li class="nav-item">
                 <a class="nav-link" href="#">Home
                     <span class="sr-only">(current)</span>
                 </a>
                 </li>
-                <li class="nav-item">
+                <li class="">
                 <a class="nav-link" href="#">About</a>
                 </li>
             
@@ -79,27 +79,29 @@
 
 
                 {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a href="{% url 'cart:cart_detail' %}"  class="nav-link">
-                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp; cart
 
-                    </a>    
-                    
-                </li>    
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; {{ user.username }}
 
-                    </a>
-                    
-                </li>    
 
-                <li class="nav-item">
-                    <a href="{% url 'accounts:logout' %}?next=/" class="nav-link">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
+                <li class="dropdown ">
+            
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user.username }}<span ></span></a>
+      
+          <ul class="dropdown-menu">
+            <li><a href="#" ><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
+            <li><a href="{% url 'cart:cart_detail' %}"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart</a></li>
+            <li><a href="{% url 'wishlist:wishlist_detail' %}"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Wishlist</a></li>
 
-                    </a>
-                </li>
+            <li role="separator" class="divider"></li>
+
+            <li><a href="{% url 'accounts:logout' %}?next=/"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+            
+
+            </ul>
+            </li>
+
+                
+                
+                
 
                 {% else %}
                 <li class="nav-item">

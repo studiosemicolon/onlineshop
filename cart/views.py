@@ -41,31 +41,6 @@ def cart_remove(request, product_id):
 
 
 
-
-
-
-
-
-
-
-
-    # cart = Cart.objects.get_object_or_404(user=request.user)
-    # # cartItem = CartItem.objects.get(id=cart.pk)
-    # # cart = Cart.objects.get_or_create(id=1)
-    
-    # 
-
-    # import pdb; pdb.set_trace()
-    
-    # # cartItem.product = product
-    # # cartItem.save()
-    
-
-    return redirect('cart:cart_detail')
-
-
-
-
 @login_required
 def cart_detail(request):
 

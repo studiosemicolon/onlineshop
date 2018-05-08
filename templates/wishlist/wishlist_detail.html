@@ -1,0 +1,58 @@
+{% extends "shop/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<h2>Login</h2>
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}Login{% endif %}
+{% endblock %}
+{%block content %}
+<div class="layout">
+			<section class="inner">
+				<h2>Next Product to purchase</h2>
+				<ul class="grid">
+
+					{% for item in wishlist.wishlist_items.all %}
+					{% with product=item.product %}
+					<li class="grid-tile">
+						<div class="item">
+									<a href="{{ product.get_absolute_url }}">
+                    							<img class="card-img-top" src="{% if product.image %}{{ product.image.url }}{% 						else %}{% static "img/no_image.png" %}{% endif %}">
+                						</a>
+							
+							
+							<div class="item-pnl">
+								<div class="pnl-wrapper">
+									<div class="pnl-description">
+										
+										<span class="pnl-label">{{product.name}}</span>
+										<span class="pnl-price">$ {{product.price}}</span>
+									</div>
+									
+									<div class="pnl-tocart">
+										<div class="pnl-ic-wrapper">
+											<a href="{% url  'cart:cart_add' product.id %}" >
+											<span class="pnl-ic"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><g><path d="M25.4,29H6.6c-1.7,0-3-1.4-2.8-2.9l1.9-13.8C5.9,11,6.6,10,8,10h16c1.4,0,2.1,1,2.3,2.3l1.9,13.8 C28.4,27.6,27.1,29,25.4,29z"></path><path d="M10.6,12.7V8.4C10.6,5.4,13,3,16,3h0c3,0,5.4,2.4,5.4,5.4v4.3"></path></g></svg></span>
+										</a>
+										</div>
+									</div>
+								    
+									<div class="pnl-favorites">
+										<div class="pnl-ic-wrapper">
+											<a href="{% url  'wishlist:wishlist_remove' product.id %}" >
+											<span class="pnl-ic"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/></svg></span>
+										</a>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</li>
+					{% endwith %}
+					{% endfor %}
+		
+				</ul>
+			</section>
+		</div>
+{% endblock %}
