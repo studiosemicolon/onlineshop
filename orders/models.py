@@ -8,8 +8,9 @@ from django.contrib.auth.models import User
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     address = models.CharField(max_length=250)
+    address_second = models.CharField(max_length=250,null=True)
     postal_code = models.CharField(max_length=20)
-    country = models.CharField(max_length=100) 
+    country = models.CharField(max_length=100, null=True) 
     state = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -19,7 +20,7 @@ class Order(models.Model):
         ordering = ('-created',)
 
     def __str__(self):
-        return 'Order {}'.format(self.user)
+        return 'Order {} {}'.format(self.user, self.id)
 
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())

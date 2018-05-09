@@ -11,7 +11,9 @@
 
         <div class="col-md-8">
           <h4 class="mb-3">Shipping address</h4>
-          <form class="needs-validation" novalidate>
+          
+          <form name = "form" action = "{% url "orders:order_save" %}" 
+         method = "POST"class="needs-validation" novalidate>{% csrf_token %}
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
@@ -61,7 +63,7 @@
 
             <div class="mb-3">
               <label for="email">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com" value="{{profile.user.email}}">
+              <input type="email" class="form-control"  placeholder="you@example.com" value="{{profile.user.email}}">
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
@@ -69,7 +71,7 @@
 
             <div class="mb-3">
               <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <input type="text" name="address" class="form-control" placeholder="1234 Main St" required>
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
@@ -77,27 +79,27 @@
 
             <div class="mb-3">
               <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+              <input name="address_secound" type="text" class="form-control"  placeholder="Apartment or suite">
             </div>
 
             <div class="row">
               <div class="col-md-5 mb-3">
                 <label for="country">Country</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <input type="text" name="country" class="form-control" id="zip" placeholder="" required>
                 <div class="invalid-feedback">
                   Please select a valid country.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="state">State</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <input type="text" name="state" class="form-control" id="zip" placeholder="" required>
                 <div class="invalid-feedback">
                   Please provide a valid state.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
                 <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <input type="text" class="form-control" name="zip" id="zip" placeholder="" required>
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>

@@ -6,7 +6,9 @@
     {% if category %}{{ category.name }}{% else %}Login{% endif %}
 {% endblock %}
 {%block content %}
+{% if user.is_authenticated %}
 
+{% endif %}
 <form method="post">
   {% csrf_token %}
   

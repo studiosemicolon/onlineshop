@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'wishlist',
+    'paypal.standard.ipn',
     
 ]
 
@@ -149,3 +150,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 LOGIN_REDIRECT_URL = 'shop:product_list'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+
+# django-paypal settings
+PAYPAL_RECEIVER_EMAIL = ''
+PAYPAL_TEST = True
