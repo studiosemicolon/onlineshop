@@ -21,7 +21,8 @@ def order_save(request):
     order.country = request.POST['country']
     order.state = request.POST['state']
     order.save()
-    return redirect('payment:process')
+    
+    return redirect('cart:cart_detail')
 
 
 def order_create(request):

@@ -21,14 +21,20 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^orders/', include('orders.urls', namespace='orders')),
     url(r'^', include('shop.urls', namespace='shop')),
+
+    url(r'^paypal/', include('paypal.standard.ipn.urls')),
+    url(r'^payment/', include('payment.urls', namespace='payment')),
+    
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^wishlist/', include('wishlist.urls', namespace='wishlist')),
     url(r'^cart/', include('cart.urls', namespace='cart')),
-    url(r'^orders/', include('orders.urls', namespace='orders')),
-    url(r'^paypal/', include('paypal.standard.ipn.urls')),
-    url(r'^payment/', include('payment.urls', namespace='payment')),
+    
+    
 
+   
+    
 
 
 

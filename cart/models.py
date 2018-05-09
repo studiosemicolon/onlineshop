@@ -28,7 +28,7 @@ class CartItem(models.Model):
     product = models.ForeignKey(Product, related_name='cart_items')
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(default=1)
-
+    
     def __str__(self):
         return '{}'.format(self.product.name)
 
