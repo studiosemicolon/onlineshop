@@ -267,3 +267,11 @@ body {
 @media screen and (min-width: 1440px) {
   .inner { width: 1400px; margin: 0 auto }
 }
+
+
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    height: auto;
+    

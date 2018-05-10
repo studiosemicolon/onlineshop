@@ -11,15 +11,20 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def cart_add(request, product_id, product_qty=None):
+def cart_add(request, product_id,product_qty=None):
+
 
     obj, created = Cart.objects.update_or_create(user=request.user)
+
+
     product = get_object_or_404(Product, id=product_id)
+
+
     item, itemCreated = CartItem.objects.update_or_create(cart=obj, product=product)
     item.price = product.price
     if product_qty:
         item.quantity = product_qty
-    obj.items.add(item)
+    obj.items.add(item) 
     item.save()
     obj.save()
     return redirect('cart:cart_detail')

@@ -52,10 +52,11 @@
             <div class="col-lg-4 col-md-6 mb-4">
             
               <div class="card h-100">
-                
-                <a href=""{{ product.get_absolute_url }}"">
+                <div class="thumbnail">
+                <a href="{{ product.get_absolute_url }}">
                     <img class="card-img-top" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                 </a>
+              </div>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
@@ -91,39 +92,34 @@
 
       </div>
 
-      <div class="row ">
-        <div class="col-md-12">
-        <nav aria-label="">
-          <ul class="pager text-center">
-            {% if products.has_previous %}  
-            <li><a href="?page={{ products.previous_page_number }}">Previous</a></li>
-            {% else %}
-            <li class="disabled"><a href="#">Previous</a></li>
-
-            {% endif %}
-
-            {% if products.has_next %}
-
-            <li><a href="?page={{ products.next_page_number }}">Next</a></li>
-            {% else %}
-            <li class="disabled"><a href="#">Next</a></li>
-            {% endif %}
-          
-          
-          
-
-          <li class="active">
-            Page {{ products.number }} of {{ products.paginator.num_pages }}.
-          </li>
-
-          
-          
-          
-          
-          </ul>
-        </nav>
-      </div>
-      </div>
+    
+      <div class="row">
+            <div class="col-md-12 text-center">
+                
+                    <div class="pag_area">
+                        <ul class="pagination">
+                            {% if products.has_previous %}
+                                <li><a href="?page={{ products.previous_page_number }}">«</a></li>
+                            {% else %}
+                                <li class="disabled"><span>«</span></li>
+                            {% endif %}
+                            {% for i in products.paginator.page_range %}
+                                {% if products.number == i %}
+                                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                {% else %}
+                                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if products.has_next %}
+                                <li><a href="?page={{ products.next_page_number }}">»</a></li>
+                            {% else %}
+                                <li class="disabled"><span>»</span></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                
+            </div>
+        </div>
 
       <!-- /.row -->
 

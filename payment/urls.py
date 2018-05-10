@@ -7,5 +7,5 @@ urlpatterns = [
     
     url(r'^canceled/$', views.payment_canceled, name='canceled'),
     url(r'^done/$', views.payment_done, name='done'),
-    url(r'^/$', views.payment_process, name='process'),
+    url(r'^(?P<id>\d+)/process/$', views.payment_process, name='process'),
 ]

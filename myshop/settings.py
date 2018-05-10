@@ -154,5 +154,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 # django-paypal settings
-PAYPAL_RECEIVER_EMAIL = ''
+PAYPAL_RECEIVER_EMAIL = 'jamilnoyda-facilitator@gmail.com'
 PAYPAL_TEST = True

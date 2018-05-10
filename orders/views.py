@@ -22,7 +22,7 @@ def order_save(request):
     order.state = request.POST['state']
     order.save()
     
-    return redirect('cart:cart_detail')
+    return redirect('../../payment/'+str(order.id)+'/process')
 
 
 def order_create(request):
@@ -31,5 +31,5 @@ def order_create(request):
 
     profile = get_object_or_404(Profile, user=request.user)
     cart = Cart.objects.get(user=request.user)
-    # import pdb; pdb.set_trace()
+    
     return render(request, 'orders/order_list.html', {'cart': cart, 'profile': profile})
