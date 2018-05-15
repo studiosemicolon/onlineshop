@@ -26,3 +26,5 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'accounts/signup.html', {'form': form})
+def detail_profile(request):
+    return render(request, 'accounts/detail_profile.html')

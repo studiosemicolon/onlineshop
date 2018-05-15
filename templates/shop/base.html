@@ -85,9 +85,9 @@
                 <li class="dropdown ">
             
           <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user.username }}<span ></span></a>
-      
+            
           <ul class="dropdown-menu">
-            <li><a href="#" ><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
+            <li><a href="{% url 'accounts:detail_profile' %}" ><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
             <li><a href="{% url 'cart:cart_detail' %}"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart <span class="badge">4</span></a></li>
             <li><a href="{% url 'wishlist:wishlist_detail' %}"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Wishlist</a></li>
 

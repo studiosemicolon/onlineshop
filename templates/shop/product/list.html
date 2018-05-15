@@ -28,12 +28,15 @@
             <div class="row">
 
                 <div class="col-lg-12">
+                <form action="{% url "shop:product_search" %}" method="post">
+                  {% csrf_token %}
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search for...">
+                  <input type="text" name="query" class="form-control" placeholder="Search for product...">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
+                    <button class="btn btn-default" type="submit">Go!</button>
                   </span>
                 </div><!-- /input-group -->
+              </form>
               </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
         </div>

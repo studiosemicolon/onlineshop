@@ -4,6 +4,7 @@ from .models import Category, Product
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from wishlist.models import Wishlist, WishlistItem
+from django.contrib.postgres.search import SearchVector
 
 
 def product_list(request, category_slug=None):
@@ -12,7 +13,7 @@ def product_list(request, category_slug=None):
     products = Product.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
-        
+
         products = products.filter(category=category)
     page = request.GET.get('page')
     paginator = Paginator(products, 6)
@@ -33,15 +34,47 @@ def product_list(request, category_slug=None):
     if request.user.username:
         wishlist = Wishlist.objects.filter(user=request.user)
 
-
-        return render(request, 'shop/product/list.html', {'category': category,'categories': categories,'products': products,'wishlist': wishlist})
+        return render(request, 'shop/product/list.html', {'category': category, 'categories': categories, 'products': products, 'wishlist': wishlist})
 
     else:
-      
-   
-      return render(request, 'shop/product/list.html', {'category': category,
-                                                        'categories': categories,
-                                                        'products': products,})
+        return render(request, 'shop/product/list.html', {'category': category,
+                                                          'categories': categories,
+                                                          'products': products, })
+
+
+def product_search(request):
+    results = None
+    try:
+        query = request.POST['query']
+        results = Product.objects.filter(name__icontains=query) |\
+            Product.objects.filter(description__icontains=query)
+        page = request.GET.get('page')
+        paginator = Paginator(results, 6)
+        try:
+            results = paginator.page(page)
+
+        except PageNotAnInteger:
+            print "PageNotAnInteger"
+            results = paginator.page(1)
+            pass
+        except EmptyPage:
+            print "EmptyPage"
+            pass
+            results = paginator.page(1)
+
+        finally:
+            pass
+        category = None
+        categories = None
+        wishlist = None
+        return render(request, 'shop/product/list.html', {'products': results, 'wishlist': wishlist})
+    except KeyError:
+        category = None
+        categories = None
+        wishlist = None
+        "KeyError"
+        return render(request, 'shop/product/list.html', {'products': results, 'wishlist': wishlist})
+        
 
 
 def product_detail(request, id, slug):

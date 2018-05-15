@@ -53,15 +53,14 @@
 
 
 
-								<input type="number" class="form-control text-center" value="{{item.quantity}}">
-								    <form action="{% url "cart:cart_add" product.id %}" method="post">
-            						{{ cart_product_form }}
-            						{% csrf_token %}
-                					
-                						<input type="submit" value="Buy Now" >
+								
+								    <form action="{% url 'cart:cart_add_q' product.id  %}" >
+            						<input type="number" name="q" value="{{ item.quantity }}" class="form-control text-center"  onchange="this.form.submit()">	
+            						
+                					{% csrf_token %}
+                						
                 					</form>
                 					
-                        			
                         		
                         			
                     			
