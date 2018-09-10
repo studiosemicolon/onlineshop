@@ -7,4 +7,6 @@ psycopg2-binary
 MySQL-python
 mysqlclient
 pymysql
+Pillow
+
 

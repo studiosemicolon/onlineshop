@@ -14,31 +14,31 @@ from django.contrib.auth.decorators import login_required
 def cart_add(request, product_id, product_qty=None):
     obj, created = Cart.objects.update_or_create(user=request.user)
     product = get_object_or_404(Product, id=product_id)
-    item, itemCreated = CartItem.objects.update_or_create(cart=obj, product=product)
+    item, itemCreated = CartItem.objects.update_or_create(
+        cart=obj, product=product)
     item.price = product.price
-    if(itemCreated==False):
+    if(itemCreated == False):
         item.quantity = item.quantity+1
     # if item.quantity = request.GET['q']
-    
-    
-    
 
     obj.items.add(item)
     item.save()
     obj.save()
     return redirect('cart:cart_detail')
 
+
 @login_required
 def cart_add_q(request, product_id, product_qty=None):
     obj, created = Cart.objects.update_or_create(user=request.user)
     product = get_object_or_404(Product, id=product_id)
-    item, itemCreated = CartItem.objects.update_or_create(cart=obj, product=product)
+    item, itemCreated = CartItem.objects.update_or_create(
+        cart=obj, product=product)
     item.price = product.price
-    
+
     # if item.quantity = request.GET['q']
-    
+
     item.quantity = request.GET['q']
-    if request.GET['q']=="0":
+    if request.GET['q'] == "0":
         # import pdb; pdb.set_trace()
         item.delete()
     else:
@@ -59,9 +59,6 @@ def cart_remove(request, product_id):
     cartItems = CartItem.objects.filter(cart=obj, product=product)
     cartItems.delete()
     return redirect('cart:cart_detail')
-
-
-
 
 
 @login_required
