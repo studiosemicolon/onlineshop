@@ -15,8 +15,7 @@ def wishlist_add(request, product_id,):
 
     obj, created = Wishlist.objects.update_or_create(user=request.user)
     product = get_object_or_404(Product, id=product_id)
-    item, itemCreated = WishlistItem.objects.update_or_create(
-        wishlist=obj, product=product)
+    item, itemCreated = WishlistItem.objects.update_or_create(wishlist=obj, product=product)
     obj.wishlist_items.add(item)
     item.save()
     obj.save()

@@ -21,7 +21,8 @@ class Wishlist(models.Model):
 
 class WishlistItem(models.Model):
 
-    wishlist = models.ForeignKey(Wishlist, related_name='wishlist_items', null=True)
+    wishlist = models.ForeignKey(
+        Wishlist, related_name='wishlist_items', null=True)
     product = models.ForeignKey(Product, related_name='wishlist_item')
 
     def __str__(self):

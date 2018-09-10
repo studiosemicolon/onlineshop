@@ -22,7 +22,7 @@ def payment_canceled(request):
     return render(request, 'payment/canceled.html')
 
 
-def payment_process(request,id):
+def payment_process(request, id):
     order = get_object_or_404(Order, id=id)
     host = request.get_host()
 
@@ -37,5 +37,4 @@ def payment_process(request,id):
         'cancel_return': 'http://{}{}'.format(host, reverse('payment:canceled')),
     }
     form = PayPalPaymentsForm(initial=paypal_dict)
-    return render(request, 'payment/process.html', {'order': order,
-                                                    'form':form})
+    return render(request, 'payment/process.html', {'order': order, 'form': form})
