@@ -39,7 +39,4 @@ def wishlist_remove(request, product_id):
 @login_required
 def wishlist_detail(request):
     wishlist = Wishlist.objects.get(user=request.user)
-
-    # import pdb; pdb.set_trace()
-
     return render(request, 'wishlist/wishlist_detail.html', {'wishlist': wishlist})

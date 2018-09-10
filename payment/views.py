@@ -36,7 +36,6 @@ def payment_process(request,id):
         'return_url': 'http://{}{}'.format(host, reverse('payment:done')),
         'cancel_return': 'http://{}{}'.format(host, reverse('payment:canceled')),
     }
-    import pdb; pdb.set_trace()
     form = PayPalPaymentsForm(initial=paypal_dict)
     return render(request, 'payment/process.html', {'order': order,
                                                     'form':form})

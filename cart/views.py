@@ -39,7 +39,6 @@ def cart_add_q(request, product_id, product_qty=None):
 
     item.quantity = request.GET['q']
     if request.GET['q'] == "0":
-        # import pdb; pdb.set_trace()
         item.delete()
     else:
         obj.items.add(item)
@@ -65,7 +64,5 @@ def cart_remove(request, product_id):
 def cart_detail(request):
 
     cart = Cart.objects.get(user=request.user)
-
-    # import pdb; pdb.set_trace()
 
     return render(request, 'cart/cart_detail.html', {'cart': cart})
