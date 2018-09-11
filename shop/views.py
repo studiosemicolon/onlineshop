@@ -21,11 +21,10 @@ def product_list(request, category_slug=None):
         products = paginator.page(page)
 
     except PageNotAnInteger:
-        print "pagenotanint"
         products = paginator.page(1)
         pass
     except EmptyPage:
-        print "dfaskj"
+
         pass
         products = paginator.page(1)
 
@@ -54,11 +53,10 @@ def product_search(request):
             results = paginator.page(page)
 
         except PageNotAnInteger:
-            print "PageNotAnInteger"
             results = paginator.page(1)
             pass
         except EmptyPage:
-            print "EmptyPage"
+
             pass
             results = paginator.page(1)
 

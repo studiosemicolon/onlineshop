@@ -15,10 +15,9 @@ class Profile(models.Model):
     full_name = models.CharField(max_length=17, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     GENDER_CHOICES = (('M', 'Male'), ('F', 'Female'), ('U', 'Unisex/Parody'))
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES,blank=True)
-    
-    phone_number = models.CharField(max_length=17, blank=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
 
+    phone_number = models.CharField(max_length=17, blank=True)
 
     def __str__(self):
         return self.user.username
