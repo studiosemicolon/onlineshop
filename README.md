@@ -21,7 +21,19 @@ trading in products or services using computer networks, such as the Internet.
 Modern electronic commerce typically uses the World Wide Web for at least one part of the
 transaction's life cycle, although it may also use other technologies such as e-mail.
 
+# Purpose of system 
 
+The Onlineshop is a virtual store on the Internet where customers can browse the
+catalog and select products of interest. The selected items may be collected in a
+shopping cart. At checkout time, the items in the shopping cart will be presented as
+an order. At that time, more information will be needed to complete the transaction.
+Usually, the customer will be asked to fill or select a billing address, a shipping
+address, a shipping option, and payment information such as credit card number.   
+
+The Onlineshop is expanded permanently through new products and services in
+order to offer a product portfolio corresponding to the market. Private customer and
+business customers can order the selected products of the Online service
+online quickly and comfortably.
 
 
 # Running the Project Locally
@@ -29,7 +41,7 @@ transaction's life cycle, although it may also use other technologies such as e-
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/jamilnoyda/Make-REST-API-in-Django-using-Django-REST-Framework..git
+git clone https://github.com/jamilnoyda/onlineshop.git
 ```
 
 
