@@ -7,7 +7,7 @@ https://docs.google.com/document/d/1Hpy5DBsiqgm2xRa6s1edSRXzZn6bJSrqSpXzzd9OdBo/
 Install the requirements:
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt --user
 ```
 
 Create the database:
