@@ -22,14 +22,10 @@ def product_list(request, category_slug=None):
 
     except PageNotAnInteger:
         products = paginator.page(1)
-        pass
-    except EmptyPage:
 
-        pass
+    except EmptyPage:
         products = paginator.page(1)
 
-    finally:
-        pass
     if request.user.username:
         wishlist = Wishlist.objects.filter(user=request.user)
 
@@ -54,14 +50,9 @@ def product_search(request):
 
         except PageNotAnInteger:
             results = paginator.page(1)
-            pass
         except EmptyPage:
 
-            pass
             results = paginator.page(1)
-
-        finally:
-            pass
         category = None
         categories = None
         wishlist = None
