@@ -1,7 +1,36 @@
 # onlineshop
-for more information follow this link
-https://docs.google.com/document/d/1Hpy5DBsiqgm2xRa6s1edSRXzZn6bJSrqSpXzzd9OdBo/edit?usp=drivesdk
+onlineshop, e-commerce project web site
 
+
+[![Python Version](https://img.shields.io/badge/python-2.7-brightgreen.svg)](https://python.org)
+[![Django Version](https://img.shields.io/badge/django-1.11-brightgreen.svg)](https://djangoproject.com)
+
+
+
+# Abstract
+
+Electronic Commerce is process of doing business through computer networks. A person sitting on his chair in front of a computer can access all the facilities of the Internet to buy or sell the products.
+Unlike traditional commerce that is carried out physically with effort of a person to go & get products, ecommerce has made it easier for human to reduce physical work and to save time.
+The main advantage of e-commerce over traditional commerce is the user can browse online shops, compare prices and order merchandise sitting at home on their PC. 
+
+The integration of information and communications technology in business has revolutionized relationships within organizations and those between and among organizations and individuals. Specifically, the use of internet in business has enhanced productivity, encouraged greater customer participation, and enabled mass customization, besides reducing costs.
+
+Electronic commerce, commonly written as e-commerce, is the trading or facilitation of
+trading in products or services using computer networks, such as the Internet.
+
+Modern electronic commerce typically uses the World Wide Web for at least one part of the
+transaction's life cycle, although it may also use other technologies such as e-mail.
+
+
+
+
+# Running the Project Locally
+
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/jamilnoyda/Make-REST-API-in-Django-using-Django-REST-Framework..git
+```
 
 
 Install the requirements:
@@ -28,4 +57,8 @@ The project will be available at **127.0.0.1:8000**.
 ## License
 
 The source code is released under the [MIT License](https://github.com/sibtc/django-multiple-user-types-example/blob/master/LICENSE).
-ss
+
+## for more information follow this link
+
+https://docs.google.com/document/d/1Hpy5DBsiqgm2xRa6s1edSRXzZn6bJSrqSpXzzd9OdBo/edit?usp=drivesdk
+
