@@ -15,8 +15,7 @@ def signup(request):
             user.profile.phone_number = form.cleaned_data.get('phone_number')
             user.profile.full_name = form.cleaned_data.get('full_name')
             user.profile.gender = form.cleaned_data.get('gender')
-            user.email= form.cleaned_data.get('email' )
-
+            user.email = form.cleaned_data.get('email')
 
             user.save()
             raw_password = form.cleaned_data.get('password1')
@@ -26,5 +25,7 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'accounts/signup.html', {'form': form})
+
+
 def detail_profile(request):
     return render(request, 'accounts/detail_profile.html')

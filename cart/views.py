@@ -36,7 +36,6 @@ def cart_add_q(request, product_id, product_qty=None):
     item.price = product.price
 
     # if item.quantity = request.GET['q']
-
     item.quantity = request.GET['q']
     if request.GET['q'] == "0":
         item.delete()
@@ -51,7 +50,6 @@ def cart_add_q(request, product_id, product_qty=None):
     #     cd = form.cleaned_data
     #     item.quantity=cd['quantity'],
 
-
 def cart_remove(request, product_id):
     obj, created = Cart.objects.update_or_create(user=request.user)
     product = get_object_or_404(Product, id=product_id)
@@ -64,5 +62,4 @@ def cart_remove(request, product_id):
 def cart_detail(request):
 
     cart = Cart.objects.get(user=request.user)
-
     return render(request, 'cart/cart_detail.html', {'cart': cart})

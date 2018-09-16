@@ -10,11 +10,13 @@ class SignUpForm(UserCreationForm):
 
     phone_number = forms.CharField(max_length=17)
     birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
-    phone_number = forms.CharField(required=True, max_length=30, label=("phone"))
+    phone_number = forms.CharField(
+        required=True, max_length=30, label=("phone"))
     full_name = forms.CharField(required=True)
     # = forms.CharField(widget=forms.RadioSelect(choices=GENDER_CHOICES))
 
-    gender = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.RadioSelect())
+    gender = forms.ChoiceField(
+        choices=GENDER_CHOICES, widget=forms.RadioSelect())
 
     password1 = forms.CharField(widget=forms.PasswordInput,
                                 label=("Password"))
@@ -24,5 +26,4 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ( 'full_name','username','email', 'birth_date', 'phone_number','gender',
-                  'password1', 'password2' ,  )
+        fields = ('full_name', 'username', 'email', 'birth_date', 'phone_number', 'gender', 'password1', 'password2',)

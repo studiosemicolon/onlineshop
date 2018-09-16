@@ -1,7 +1,5 @@
 from __future__ import unicode_literals
-
 from django.db import models
-
 # Create your models here.
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -25,6 +23,15 @@ class Profile(models.Model):
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
+    # import pdb; pdb.set_trace()
+    # if created:
+    #     Profile.objects.create(user=instance)
+    # instance.profile.save()
+    pass
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
