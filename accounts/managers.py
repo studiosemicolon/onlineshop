@@ -1,5 +1,5 @@
 from django.contrib.auth.models import (
-    AbstractBaseUser, PermissionsMixin, BaseUserManager
+     BaseUserManager
 )
 from django.db import transaction
 

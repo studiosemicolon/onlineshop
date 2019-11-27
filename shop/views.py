@@ -26,7 +26,7 @@ def product_list(request, category_slug=None):
     except EmptyPage:
         products = paginator.page(1)
 
-    if request.user.username:
+    if request.user.email:
         wishlist = Wishlist.objects.filter(user=request.user)
 
         return render(request, 'shop/product/list.html', {'category': category, 'categories': categories, 'products': products, 'wishlist': wishlist})
