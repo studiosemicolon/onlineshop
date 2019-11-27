@@ -162,3 +162,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 PAYPAL_RECEIVER_EMAIL = 'jamilnoyda-facilitator@gmail.com'
 PAYPAL_TEST = True
+AUTH_USER_MODEL = 'accounts.User'
