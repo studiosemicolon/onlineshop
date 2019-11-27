@@ -1,5 +1,5 @@
 django-crispy-forms==1.7.0
-Django==1.11.15
+Django==1.11.23
 pytz==2018.5
 django-paypal==0.2.3
 psycopg2
