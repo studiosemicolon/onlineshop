@@ -24,8 +24,14 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
-    cart = models.ForeignKey(Cart, related_name='items', null=True)
-    product = models.ForeignKey(Product, related_name='cart_items')
+    cart = models.ForeignKey(Cart, related_name='items',
+    null=True,
+    on_delete=models.CASCADE,
+    )
+    product = models.ForeignKey(Product,
+    related_name='cart_items',
+    on_delete=models.CASCADE,
+    )
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(default=1)
 

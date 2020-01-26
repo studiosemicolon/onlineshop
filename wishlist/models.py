@@ -22,8 +22,15 @@ class Wishlist(models.Model):
 class WishlistItem(models.Model):
 
     wishlist = models.ForeignKey(
-        Wishlist, related_name='wishlist_items', null=True)
-    product = models.ForeignKey(Product, related_name='wishlist_item')
+        Wishlist,
+        related_name='wishlist_items',
+        null=True,
+        on_delete=models.CASCADE,
+    )
+    product = models.ForeignKey(Product, related_name='wishlist_item',
+    on_delete=models.CASCADE,
+    
+    )
 
     def __str__(self):
         return '{}'.format(self.product.name)
