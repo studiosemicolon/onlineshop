@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Product
-#from cart.forms import CartAddProductForm
+from shop.models import Category, Product
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from wishlist.models import Wishlist, WishlistItem
@@ -25,16 +24,32 @@ def product_list(request, category_slug=None):
 
     except EmptyPage:
         products = paginator.page(1)
-
-    if request.user.email:
+    is_authenticated = request.user.is_authenticated
+    print(is_authenticated)
+    if is_authenticated:
         wishlist = Wishlist.objects.filter(user=request.user)
 
-        return render(request, 'shop/product/list.html', {'category': category, 'categories': categories, 'products': products, 'wishlist': wishlist})
+        return render(
+            request,
+            'shop/product/list.html',
+            {
+                'category': category,
+                'categories': categories,
+                'products': products,
+                'wishlist': wishlist
+            }
+        )
 
     else:
-        return render(request, 'shop/product/list.html', {'category': category,
-                                                          'categories': categories,
-                                                          'products': products, })
+        return render(
+            request,
+            'shop/product/list.html',
+            {
+                'category': category,
+                'categories': categories,
+                'products': products,
+            }
+        )
 
 
 def product_search(request):
@@ -53,23 +68,34 @@ def product_search(request):
         except EmptyPage:
 
             results = paginator.page(1)
-        category = None
-        categories = None
+
         wishlist = None
-        return render(request, 'shop/product/list.html', {'products': results, 'wishlist': wishlist})
+        return render(
+            request,
+            'shop/product/list.html',
+            {'products': results, 'wishlist': wishlist}
+        )
     except KeyError:
-        category = None
-        categories = None
         wishlist = None
         "KeyError"
-        return render(request, 'shop/product/list.html', {'products': results, 'wishlist': wishlist})
-        
+        return render(
+            request,
+            'shop/product/list.html',
+            {'products': results, 'wishlist': wishlist}
+        )
 
 
 def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    #cart_product_form = CartAddProductForm()
-    return render(request,
-                  'shop/product/detail.html',
-                  {'product': product,
-                   })  # 'cart_product_form': cart_product_form
+
+    product = get_object_or_404(
+        Product,
+        id=id,
+        slug=slug,
+        available=True
+    )
+
+    return render(
+        request,
+        'shop/product/detail.html',
+        {'product': product}
+    )

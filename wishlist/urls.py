@@ -1,10 +1,20 @@
-from django.conf.urls import url
-from . import views
+from django.urls import path
+from wishlist import views
 
-
+app_name = 'wishlist'
 urlpatterns = [
 
-    url(r'^add/(?P<product_id>\d+)/$', views.wishlist_add, name='wishlist_add'),
-    url(r'^remove/(?P<product_id>\d+)/$', views.wishlist_remove, name='wishlist_remove'),
-    url(r'^$', views.wishlist_detail, name='wishlist_detail'),
+    path(
+        'add/(?P<product_id>\d+)/$',
+        views.wishlist_add,
+        name='wishlist_add'
+    ),
+
+    path(
+        'remove/(?P<product_id>\d+)/',
+        views.wishlist_remove,
+        name='wishlist_remove'
+    ),
+
+    path('', views.wishlist_detail, name='wishlist_detail')
 ]

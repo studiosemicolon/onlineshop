@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
-from .forms import *
+from accounts.forms import *
 
 
 def signup(request):

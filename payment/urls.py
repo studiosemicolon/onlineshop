@@ -1,11 +1,12 @@
-from django.conf.urls import url
-
-from . import views
+from django.urls import path
 
 
+from payment import views
+
+app_name = 'payment'
 urlpatterns = [
-    
-    url(r'^canceled/$', views.payment_canceled, name='canceled'),
-    url(r'^done/$', views.payment_done, name='done'),
-    url(r'^(?P<id>\d+)/process/$', views.payment_process, name='process'),
+
+    path('canceled/$', views.payment_canceled, name='canceled'),
+    path('done/$', views.payment_done, name='done'),
+    path('(?P<id>\d+)/process', views.payment_process, name='process')
 ]

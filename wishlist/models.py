@@ -16,7 +16,7 @@ class Wishlist(models.Model):
         ordering = ('-created',)
 
     def __str__(self):
-        return 'wishlist of {}'.format(self.user.username)
+        return 'wishlist of {}'.format(self.user.email)
 
 
 class WishlistItem(models.Model):
