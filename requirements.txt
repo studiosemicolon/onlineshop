@@ -6,7 +6,7 @@ django-crispy-forms==1.8.1
 django-paypal==1.0.0
 idna==2.8
 #mysqlclient==1.4.6
-Pillow==7.0.0
+Pillow
 pkg-resources==0.0.0
 psycopg2-binary==2.8.4
 #PyMySQL==0.9.3
