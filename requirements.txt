@@ -1,7 +1,7 @@
 asgiref==3.2.3
 certifi==2019.11.28
 chardet==3.0.4
-Django==3.0.2
+Django
 django-crispy-forms==1.8.1
 django-paypal==1.0.0
 idna==2.8
