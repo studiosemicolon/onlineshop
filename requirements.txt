@@ -5,7 +5,7 @@ Django==3.1
 django-paypal==1.0.0
 idna==2.10
 paypal==1.2.5
-Pillow==7.2.0
+Pillow==8.1.1
 psycopg2-binary==2.8.5
 pytz==2020.1
 requests==2.24.0
